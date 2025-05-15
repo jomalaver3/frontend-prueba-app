@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title>Inscripción a Materias</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="inscribir()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ID Estudiante</mat-label>
+        <input matInput [(ngModel)]="estudianteId" name="estudianteId" required />
+      </mat-form-field>
+      <div>
+        <label>Selecciona 3 materias:</label>
+        <div *ngFor="let materia of materias">
+          <!--   <mat-checkbox [value]="materia.id" [(ngModel)]="seleccionadas" name="materias" (change)="onMateriaChange()"
+            [checked]="seleccionadas.includes(materia.id)">
+            {{ materia.nombre }} (Profesor: {{ materia.profesorNombre }})
+          </mat-checkbox> -->
+          <mat-checkbox [checked]="seleccionadas.includes(materia.id)" (change)="onCheckboxChange($event, materia.id)">
+            {{ materia.nombre }} (Profesor: {{ materia.profesorNombre }})
+          </mat-checkbox>
+
+          <!--   <mat-checkbox [checked]="seleccionadas.includes(materia.id)" (change)="onCheckboxChange($event, materia.id)">
+            {{ materia.nombre }} (Profesor: {{ materia.profesorNombre }})
+          </mat-checkbox> -->
+        </div>
+      </div>
+      <div *ngIf="error" style="color: red;">{{ error }}</div>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loading">Inscribir</button>
+      <mat-progress-spinner *ngIf="loading" mode="indeterminate" diameter="30"></mat-progress-spinner>
+    </form>
+  </mat-card-content>
+</mat-card>

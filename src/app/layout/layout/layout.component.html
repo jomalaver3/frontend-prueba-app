@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <a routerLink="/estudiantes" routerLinkActive="active">Estudiantes</a>
+  <a routerLink="/materias" routerLinkActive="active">Materias</a>
+  <a routerLink="/profesores" routerLinkActive="active">Profesores</a>
+  <a routerLink="/inscripcion" routerLinkActive="active">Inscripción</a>
+  <a routerLink="/companeros" routerLinkActive="active">Compañeros</a>
+  <button *ngIf="isLoggedIn$ | async" (click)="logout()">Cerrar sesión</button>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>

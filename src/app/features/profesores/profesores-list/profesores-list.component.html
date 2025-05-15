@@ -1,0 +1,6 @@
+<div *ngIf="loading">Cargando profesores...</div>
+<ul *ngIf="!loading">
+  <li *ngFor="let profesor of profesores">
+    {{ profesor.nombre }} - Materias: {{ profesor.materias.join(', ') }}
+  </li>
+</ul>

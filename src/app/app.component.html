@@ -1,0 +1,7 @@
+<!-- Usamos ngIf para mostrar el layout solo si no estamos en /login -->
+<ng-container *ngIf="!isLoginRoute(); else loginPage">
+  <app-layout></app-layout>
+</ng-container>
+<ng-template #loginPage>
+  <router-outlet></router-outlet>
+</ng-template>

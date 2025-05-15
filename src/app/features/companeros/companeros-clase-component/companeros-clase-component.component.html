@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>Compañeros por Materia</mat-card-title>
+  <mat-card-content>
+    <div *ngIf="loading">Cargando...</div>
+    <div *ngIf="!loading">
+      <div *ngFor="let grupo of companerosPorMateria">
+        <h4>{{ grupo.materiaNombre }}</h4>
+        <mat-list>
+          <mat-list-item *ngFor="let companero of grupo.companeros">
+            {{ companero.nombre }}
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

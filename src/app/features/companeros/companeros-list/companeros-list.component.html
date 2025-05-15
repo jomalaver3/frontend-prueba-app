@@ -1,0 +1,16 @@
+<p>companeros-list works!</p>
+<h2>Compañeros de clase</h2>
+<div>
+  <label>ID Estudiante:</label>
+  <input [(ngModel)]="estudianteId" name="estudianteId" />
+  <button (click)="buscarCompaneros()">Buscar</button>
+</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngFor="let materia of materias">
+  <h3>{{ materia.materiaNombre }}</h3>
+  <ul>
+    <li *ngFor="let companero of materia.companeros">
+      {{ companero.nombre }}
+    </li>
+  </ul>
+</div>
